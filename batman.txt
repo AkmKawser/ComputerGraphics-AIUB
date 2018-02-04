@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <GL/gl.h>
+#include <GL/glut.h>
+
+void myInit (void)
+{
+    glClearColor(1.000, 0.843, 0.000,0.000);
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glPointSize(35.0);
+    glLineWidth(20.0);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0.0, 1200.0, 800.0, 0.0);
+}
+
+void printPointLine1DX(int x1, int x2, int y, int i)
+{
+    for(int x=x1; x<=x2; x+=i)
+    {
+        glBegin(GL_POINTS);
+            glColor3f (0.0, 0.0, 0.0);
+            glVertex2i(x, y);
+        glEnd();
+    }
+}
+
+void printPointLine1DY(int y1, int y2, int x, int i)
+{
+    for(int y=y1; y<=y2; y+=i)
+    {
+        glBegin(GL_POINTS);
+            glColor3f (0.0, 0.0, 0.0);
+            glVertex2i(x, y);
+        glEnd();
+    }
+}
+
+void myDisplay(void)
+{
+    glClear (GL_COLOR_BUFFER_BIT);
+    glBegin(GL_LINES);
+
+        glColor3f(0.0,0.0,0.0);
+        glVertex2i(280,35);
+        glVertex2i(880,35);
+
+        glVertex2i(870,25);
+        glVertex2i(1115,280);
+
+        glVertex2i(1115,280);
+        glVertex2i(1115,490);
+
+        glVertex2i(1115,490);
+        glVertex2i(870,745);
+
+        glVertex2i(880,735);
+        glVertex2i(280,735);
+
+        glVertex2i(280,735);
+        glVertex2i(60,515);
+
+        glVertex2i(70,525);
+        glVertex2i(70,280);
+
+        glVertex2i(70,280);
+        glVertex2i(290,25);
+    glEnd();
+    //TAILSIDE
+    printPointLine1DX(140,1015,473,35);
+    printPointLine1DX(175,980,508,35);
+    printPointLine1DX(215,425,543,35);
+    printPointLine1DX(500,675,543,35);
+    printPointLine1DX(745,955,543,35);
+    printPointLine1DX(250,395,575,35);
+    printPointLine1DX(535,645,575,35);
+    printPointLine1DX(775,920,575,35);
+    printPointLine1DX(285,360,605,35);
+    printPointLine1DX(570,615,605,35);
+    printPointLine1DX(815,885,605,35);
+
+    //BATman TAIL
+    glBegin(GL_POINTS);
+        glColor3f (0.0, 0.0, 0.0);
+        glVertex2i(355, 640);
+        glVertex2i(588, 640);
+        glVertex2i(815, 640);
+    glEnd();
+
+    glBegin(GL_QUADS);
+        glColor3f (0.0, 0.0, 0.0);
+        glVertex2i(105, 315);
+        glVertex2i(105, 455);
+        glVertex2i(1050, 455);
+        glVertex2i(1050, 315);
+    glEnd();
+
+    //HEADSIDE
+    printPointLine1DX(145,385,300,35);
+    printPointLine1DX(500,675,300,35);
+    printPointLine1DX(800,1025,300,35);
+    printPointLine1DX(185,355,265,35);
+    printPointLine1DX(535,645,265,35);
+    printPointLine1DX(835,990,265,35);
+    printPointLine1DX(220,355,230,35);
+    printPointLine1DX(535,645,230,35);
+    printPointLine1DX(835,955,230,35);
+    printPointLine1DX(255,355,195,35);
+    printPointLine1DX(535,645,195,35);
+    printPointLine1DX(835,925,195,35);
+    printPointLine1DX(285,380,160,35);
+    printPointLine1DX(535,645,160,35);
+    printPointLine1DX(800,885,160,35);
+
+    //BATman HEAD
+    glBegin(GL_POINTS);
+    glColor3f(0.000f, 0.000f, 0.000f);
+    glVertex2i(535, 125);
+    glVertex2i(640, 125);
+    glEnd();
+
+    glFlush ();
+}
+
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize (1200, 800);
+    glutInitWindowPosition (100, 100);
+    glutCreateWindow ("OpenGL Batman");
+    glutDisplayFunc(myDisplay);
+    myInit();
+    glutMainLoop();
+
+    return 0;
+}

@@ -1,0 +1,139 @@
+#include <stdio.h>
+#include<GL/gl.h>
+#include <GL/glut.h>
+
+void myDisplay(void)
+{
+glClear (GL_COLOR_BUFFER_BIT);
+glColor3ub (0,255,0);
+glPointSize(5.0);
+glColor3ub (255,0,0);
+glBegin(GL_POLYGON);
+    glVertex2i(100, 300); //1
+    glVertex2i(150, 200); //2
+    glVertex2i(450, 200); //3
+    glVertex2i(500, 300); //4
+glEnd();
+
+glColor3ub (0,0,100);
+glBegin(GL_POLYGON);
+    glVertex2i(140, 450);
+    glVertex2i(140, 300);
+    glVertex2i(170, 300);
+    glVertex2i(170, 450);
+glEnd();
+
+glColor3ub (0,200,0);
+glBegin(GL_POLYGON);
+    glVertex2i(250, 400);
+    glVertex2i(250, 300);
+    glVertex2i(280, 300);
+    glVertex2i(280, 400);
+glEnd();
+
+glColor3ub (100,100,100);
+glBegin(GL_POLYGON);
+    glVertex2i(380, 350);
+    glVertex2i(380, 300);
+    glVertex2i(410, 300);
+    glVertex2i(410, 350);
+glEnd();
+
+//water
+glColor3ub (0,0,255);
+glBegin(GL_POLYGON);
+    glVertex2i(20, 180);
+    glVertex2i(40, 200);
+    glVertex2i(60, 180);
+    glVertex2i(80, 200);
+    glVertex2i(100, 180);
+    glVertex2i(120, 200);
+    glVertex2i(140, 180);
+    glVertex2i(160, 200);
+    glVertex2i(180, 180);
+    glVertex2i(200, 200);
+    glVertex2i(220, 180);
+    glVertex2i(240, 200);
+    glVertex2i(260, 180);
+    glVertex2i(280, 200);
+    glVertex2i(300, 180);
+    glVertex2i(320, 200);
+    glVertex2i(340, 180);
+    glVertex2i(360, 200);
+    glVertex2i(380, 180);
+    glVertex2i(400, 200);
+    glVertex2i(420, 180);
+    glVertex2i(440, 200);
+    glVertex2i(460, 180);
+    glVertex2i(480, 200);
+    glVertex2i(500, 180);
+    glVertex2i(520, 200);
+    glVertex2i(540, 180);
+    glVertex2i(560, 200);
+    glVertex2i(580, 180);
+    glVertex2i(600, 200);
+glEnd();
+
+//smoke
+glColor3ub (100,100,100);
+glBegin(GL_POLYGON);
+    glVertex2i(390, 400);
+    glVertex2i(390, 390);
+    glVertex2i(400, 390);
+    glVertex2i(400, 400);
+glEnd();
+
+glBegin(GL_POLYGON);
+    glVertex2i(420, 430);
+    glVertex2i(420, 420);
+    glVertex2i(430, 420);
+    glVertex2i(430, 430);
+glEnd();
+
+glBegin(GL_POLYGON);
+    glVertex2i(450, 460);
+    glVertex2i(450, 450);
+    glVertex2i(460, 450);
+    glVertex2i(460, 460);
+glEnd();
+
+glBegin(GL_POLYGON);
+    glVertex2i(180, 480);
+    glVertex2i(180, 470);
+    glVertex2i(190, 470);
+    glVertex2i(190, 480);
+glEnd();
+
+glBegin(GL_POLYGON);
+    glVertex2i(300, 450);
+    glVertex2i(300, 440);
+    glVertex2i(310, 440);
+    glVertex2i(310, 450);
+glEnd();
+
+glBegin(GL_POLYGON);
+    glVertex2i(330, 480);
+    glVertex2i(330, 470);
+    glVertex2i(340, 470);
+    glVertex2i(340, 480);
+glEnd();
+glFlush ();
+}
+void myInit (void)
+{
+glClearColor(1.0, 1.0, 1.0, 0.0);
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+gluOrtho2D(0.0, 640.0, 0.0, 480.0);
+}
+main(int argc, char** argv)
+{
+glutInit(&argc, argv);
+glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize (650, 420);
+glutInitWindowPosition (400, 80);
+glutCreateWindow ("Hello World");
+glutDisplayFunc(myDisplay);
+myInit ();
+glutMainLoop();
+}
